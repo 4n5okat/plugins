@@ -1,0 +1,23 @@
+############################################################
+# Rest Client API実行ファイル
+############################################################
+
+#----------------------------------------------------
+# endpoint : Kong Admin API
+#----------------------------------------------------
+### サービスの作成
+# @name EnablePlugins
+POST http://localhost:8001/services/mock-service/plugins
+Content-Type: application/json
+
+{
+  "name": "jwt-blacklist-jti",
+  "config.redis_host": "dragonfly",
+  "config.redis_port": 6379,
+  "config.redis_timeout": 2000,
+  "config.redis_blacklist_prefix": "blacklist:jti:",
+  "config.redis_pool_size": 100
+}
+
+###
+# @name
